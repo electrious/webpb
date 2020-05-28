@@ -1,0 +1,21 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.workers.roofplatedet;
+
+option csharp_namespace = "Electrious.Workers.Roofplatedet";
+option go_package = "roofplatedetpb";
+option java_multiple_files = true;
+option java_outer_classname = "RequestProto";
+option java_package = "com.electrious.workers.roofplatedet";
+option objc_class_prefix = "EWR";
+option php_namespace = "Electrious\\Workers\\Roofplatedet";
+
+import "electrious/models/file.proto";
+
+// Request takes only ply file.
+message Request {
+  models.File ply = 2;
+}

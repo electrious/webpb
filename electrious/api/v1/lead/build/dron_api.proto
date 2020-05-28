@@ -1,0 +1,53 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.api.v1.lead.build;
+
+option csharp_namespace = "Electrious.Api.V1.Lead.Build";
+option go_package = "buildpb";
+option java_multiple_files = true;
+option java_outer_classname = "DronApiProto";
+option java_package = "com.electrious.api.v1.lead.build";
+option objc_class_prefix = "EAVLB";
+option php_namespace = "Electrious\\Api\\V1\\Lead\\Build";
+option swift_prefix = "LeadBuild";
+
+import "electrious/models/file.proto";
+import "electrious/uuid.proto";
+
+// DronAPI is here to support drones.
+// You should start workflow with creating group. Group
+// has uuid which can be used to upload pictures.
+// After that call Crete to close group and finish build.
+service DronAPI {
+  // CreateDronImageGroup will create new batch for images.
+  rpc CreateDronImageGroup(CreateDronImageGroupRequest) returns (CreateDronImageGroupResponse);
+  // UploadLeadDronImage will upload new image to group.
+  rpc UploadDronImage(UploadDronImageRequest) returns (UploadDronImageResponse);
+  // CreateDronBuild will create lead build.
+  rpc CreateDronBuild(CreateDronBuildRequest) returns (CreateDronBuildResponse);
+}
+
+message CreateDronImageGroupRequest {}
+
+message CreateDronImageGroupResponse {
+  electrious.UUID uuid = 1;
+}
+
+message UploadDronImageRequest {
+  electrious.UUID uuid = 1;
+  models.File image = 2;
+}
+
+message UploadDronImageResponse {}
+
+message CreateDronBuildRequest {
+  electrious.UUID uuid = 1;
+  uint64 house_id = 2;
+}
+
+message CreateDronBuildResponse {
+  electrious.UUID uuid = 1;
+}

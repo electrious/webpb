@@ -1,0 +1,25 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.racking;
+
+option csharp_namespace = "Electrious.Models.Racking";
+option go_package = "rackingpb";
+option java_multiple_files = true;
+option java_outer_classname = "KindProto";
+option java_package = "com.electrious.models.racking";
+option objc_class_prefix = "EMR";
+option php_namespace = "Electrious\\Models\\Racking";
+option swift_prefix = "ProtoRacking";
+
+// Kind is kind of racking used.
+enum Kind {
+  KIND_INVALID = 0;
+  KIND_FX = 1;
+  KIND_XR = 2;
+  KIND_XR_FLAT = 3;
+  KIND_BX = 4;
+  KIND_GAF = 5;
+}

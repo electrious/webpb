@@ -1,0 +1,23 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.workers.leadlegacy;
+
+option csharp_namespace = "Electrious.Workers.Leadlegacy";
+option go_package = "leadlegacypb";
+option java_multiple_files = true;
+option java_outer_classname = "RequestProto";
+option java_package = "com.electrious.workers.leadlegacy";
+option objc_class_prefix = "EWL";
+option php_namespace = "Electrious\\Workers\\Leadlegacy";
+
+import "google/protobuf/wrappers.proto";
+
+// Request is request for mining a lead.
+message Request {
+  uint64 house_id = 1;
+  google.protobuf.UInt64Value initiator_id = 2;
+  bool force = 3;
+}

@@ -1,0 +1,37 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.lead;
+
+option csharp_namespace = "Electrious.Models.Lead";
+option go_package = "leadpb";
+option java_multiple_files = true;
+option java_outer_classname = "BuildProto";
+option java_package = "com.electrious.models.lead";
+option objc_class_prefix = "EML";
+option php_namespace = "Electrious\\Models\\Lead";
+option swift_prefix = "ProtoLead";
+
+import "google/protobuf/timestamp.proto";
+
+// Lead represent single  project which can be fork of already
+// existing lead. This can be noticed by origin_id not being empty.
+// Lead is basically glue between marker on a map and every other information
+// which is realted to that house.
+message Build {
+  uint64 id = 1;
+  google.protobuf.Timestamp created_at = 2;
+  // State tells how lead endup. This is useful
+  // if you need to find out if lead failed or is
+  // still being processed.
+  enum State {
+    STATE_INVALID = 0;
+    STATE_PROGRESSING = 1;
+    STATE_DONE = 2;
+    STATE_ERROR = 3;
+  }
+  State state = 3;
+  uint32 progress = 4;
+}

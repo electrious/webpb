@@ -1,0 +1,31 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.workers.housedet;
+
+option csharp_namespace = "Electrious.Workers.Housedet";
+option go_package = "housedetpb";
+option java_multiple_files = true;
+option java_outer_classname = "ResponseProto";
+option java_package = "com.electrious.workers.housedet";
+option objc_class_prefix = "EWH";
+option php_namespace = "Electrious\\Workers\\Housedet";
+
+import "electrious/models/geometry/latlng.proto";
+
+// Response from housedet miner.
+// Miner based on X,Y will take a tile (static 18 zoom) and analyze tile for
+// houses. Position houses = 3 are then result of that detection.
+message Response {
+  bool success = 1;
+  string error = 2;
+  // Position represent single house position.
+  message Position {
+    models.geometry.LatLng latlng = 1;
+    double diameter = 2;
+    double probability = 3;
+  }
+  repeated Position houses = 3;
+}

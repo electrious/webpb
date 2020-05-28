@@ -1,0 +1,37 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.racking;
+
+option csharp_namespace = "Electrious.Models.Racking";
+option go_package = "rackingpb";
+option java_multiple_files = true;
+option java_outer_classname = "ClampProto";
+option java_package = "com.electrious.models.racking";
+option objc_class_prefix = "EMR";
+option php_namespace = "Electrious\\Models\\Racking";
+option swift_prefix = "ProtoRacking";
+
+import "electrious/lr.proto";
+import "electrious/uuid.proto";
+
+// Clamp ...
+// todo eric
+message Clamp {
+  UUID id = 1;
+  int32 array_number = 2;
+  // Kind ...
+  // todo eric
+  enum Kind {
+    KIND_INVALID = 0;
+    KIND_MIDDLE = 1;
+    KIND_END = 2;
+  }
+  Kind kind = 3;
+  electrious.LRPosition pos = 4;
+  double x = 5;
+  double y = 6;
+  double z = 7;
+}

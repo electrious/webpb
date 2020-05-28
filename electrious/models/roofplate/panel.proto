@@ -1,0 +1,49 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.roofplate;
+
+option csharp_namespace = "Electrious.Models.Roofplate";
+option go_package = "roofplatepb";
+option java_multiple_files = true;
+option java_outer_classname = "PanelProto";
+option java_package = "com.electrious.models.roofplate";
+option objc_class_prefix = "EMR";
+option php_namespace = "Electrious\\Models\\Roofplate";
+option swift_prefix = "ProtoRoofplate";
+
+import "electrious/uuid.proto";
+import "google/protobuf/timestamp.proto";
+
+// Panel represent position of solar module on roofplate.
+message Panel {
+  // Orientation of panel.
+  enum Orientation {
+    ORIENTATION_INVALID = 0;
+    ORIENTATION_LANDSCAPE = 1;
+    ORIENTATION_PORTRAIT = 2;
+  }
+  // Alignment of panel.
+  enum Alignment {
+    ALIGNMENT_INVALID = 0;
+    ALIGNMENT_GRID = 1;
+    ALIGNMENT_BRICK = 2;
+  }
+  uint64 id = 1;
+  electrious.UUID uuid = 2;
+  google.protobuf.Timestamp created_at = 3;
+  google.protobuf.Timestamp end_at = 4;
+  uint64 lead_id = 5;
+  electrious.UUID roofplate_uuid = 6;
+  uint32 row_number = 7;
+  uint32 array_number = 8;
+  float x = 9;
+  float y = 10;
+  float slope = 11;
+  Orientation orientation = 12;
+  Alignment alignment = 13;
+  // float production = 7;
+
+}

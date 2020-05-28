@@ -1,0 +1,34 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.workers.planset;
+
+option csharp_namespace = "Electrious.Workers.Planset";
+option go_package = "plansetpb";
+option java_multiple_files = true;
+option java_outer_classname = "RequestProto";
+option java_package = "com.electrious.workers.planset";
+option objc_class_prefix = "EWP";
+option php_namespace = "Electrious\\Workers\\Planset";
+
+import "electrious/models/address.proto";
+import "electrious/models/lead.proto";
+import "electrious/models/panel.proto";
+import "electrious/models/racking.proto";
+import "electrious/models/roofplate.proto";
+import "electrious/models/roofplate/panel.proto";
+import "electrious/models/user.proto";
+
+// Request for plansets to be made. Plansets are
+// pdf (or other) drawings needed for building department.
+message Request {
+  models.Lead lead = 1;
+  models.Address address = 2;
+  repeated models.User homeowners = 3;
+  repeated models.Roofplate roofplates = 4;
+  repeated models.roofplate.Panel panels = 5;
+  models.Racking racking = 6;
+  models.Panel panel = 7;
+}

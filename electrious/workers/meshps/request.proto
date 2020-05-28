@@ -1,0 +1,27 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.workers.meshps;
+
+option csharp_namespace = "Electrious.Workers.Meshps";
+option go_package = "meshpspb";
+option java_multiple_files = true;
+option java_outer_classname = "RequestProto";
+option java_package = "com.electrious.workers.meshps";
+option objc_class_prefix = "EWM";
+option php_namespace = "Electrious\\Workers\\Meshps";
+
+import "electrious/models/file.proto";
+import "electrious/models/geometry/latlng.proto";
+
+// Request is request needed for actuall worker
+// to create a mesh based on images. Images
+// should be noted with exif data fot lat lng
+// altitude and there should be at least 10 images
+// from different angles.
+message Request {
+  models.geometry.LatLng latlng = 1;
+  repeated models.File images = 2;
+}

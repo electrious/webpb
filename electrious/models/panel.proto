@@ -1,0 +1,46 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models;
+
+option csharp_namespace = "Electrious.Models";
+option go_package = "modelspb";
+option java_multiple_files = true;
+option java_outer_classname = "PanelProto";
+option java_package = "com.electrious.models";
+option objc_class_prefix = "EMX";
+option php_namespace = "Electrious\\Models";
+option swift_prefix = "Proto";
+
+// Panel is piece of hardware. It represents
+// unit type and its parameters.
+message Panel {
+  uint64 id = 1;
+  string name = 2;
+  string manufacturer = 3;
+  bool bipv = 4;
+  float size_short = 5;
+  float size_long = 6;
+  float t_noct = 7;
+  float a_c = 8;
+  float n_s = 9;
+  float i_sc_ref = 10;
+  float v_oc_ref = 11;
+  float i_mp_ref = 12;
+  float v_mp_ref = 13;
+  float alpha_sc = 14;
+  float beta_oc = 15;
+  float a_ref = 16;
+  float i_l_ref = 17;
+  float i_o_ref = 18;
+  float r_s = 19;
+  float r_sh_ref = 20;
+  float gamma_r = 21;
+  float adjust = 22;
+  string version = 23;
+  float ptc = 24;
+  string technology = 25;
+  int32 year_approved_at = 26;
+}

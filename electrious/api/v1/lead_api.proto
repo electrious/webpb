@@ -1,0 +1,78 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.api.v1;
+
+option csharp_namespace = "Electrious.Api.V1";
+option go_package = "apiv1";
+option java_multiple_files = true;
+option java_outer_classname = "LeadApiProto";
+option java_package = "com.electrious.api.v1";
+option objc_class_prefix = "EAX";
+option php_namespace = "Electrious\\Api\\V1";
+option swift_prefix = "";
+
+import "electrious/models/lead.proto";
+import "electrious/models/lead/build.proto";
+
+// LeadAPI service helps to manage basic op with leads.
+service LeadAPI {
+  // CreateLead will start meshing concreate lead identified by house id.
+  rpc CreateLead(CreateLeadRequest) returns (CreateLeadResponse) {
+    option deprecated = true;
+  }
+  // SubscribeLeadBuild will subsribe to progress of meshing certain lead.
+  rpc SubscribeLeadBuild(SubscribeLeadBuildRequest) returns (stream SubscribeLeadBuildResponse) {
+    option deprecated = true;
+  }
+  // DeleteByHouseID will remove all leads by house id.
+  rpc DeleteByHouseID(DeleteByHouseIDRequest) returns (DeleteByHouseIDResponse);
+  // ListLeadsByHouseID will list all leads by house id.
+  rpc ListLeadsByHouseID(ListLeadsByHouseIDRequest) returns (ListLeadsByHouseIDResponse);
+  // ListLeadsByAddress will search all leads by address.
+  rpc ListLeadsByAddress(ListLeadsByAddressRequest) returns (ListLeadsByAddressResponse);
+}
+
+message CreateLeadRequest {
+  option deprecated = true;
+  uint64 house_id = 1;
+}
+
+message CreateLeadResponse {
+  option deprecated = true;
+  models.Lead lead = 1;
+}
+
+message SubscribeLeadBuildRequest {
+  option deprecated = true;
+  uint64 house_id = 1;
+}
+
+message SubscribeLeadBuildResponse {
+  option deprecated = true;
+  models.lead.Build build = 1;
+}
+
+message DeleteByHouseIDRequest {
+  uint64 house_id = 1;
+}
+
+message DeleteByHouseIDResponse {}
+
+message ListLeadsByHouseIDRequest {
+  uint64 house_id = 1;
+}
+
+message ListLeadsByHouseIDResponse {
+  repeated models.Lead leads = 1;
+}
+
+message ListLeadsByAddressRequest {
+  string address = 1;
+}
+
+message ListLeadsByAddressResponse {
+  repeated models.LeadAddress leads = 1;
+}

@@ -1,0 +1,45 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.house;
+
+option csharp_namespace = "Electrious.Models.House";
+option go_package = "housepb";
+option java_multiple_files = true;
+option java_outer_classname = "HouseProto";
+option java_package = "com.electrious.models.house";
+option objc_class_prefix = "EMH";
+option php_namespace = "Electrious\\Models\\House";
+option swift_prefix = "Proto";
+
+import "electrious/models/address.proto";
+import "electrious/models/geometry/latlng.proto";
+import "electrious/models/house/state/state.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+// House model, represent single centerpoint for house on map.
+// One house can have many leads and many houses are in one tile.
+message House {
+  uint64 id = 1;
+  google.protobuf.Timestamp created_at = 2;
+  google.protobuf.Timestamp updated_at = 3;
+  geometry.LatLng latlng = 4;
+  float diameter = 5;
+  float probability = 6;
+  google.protobuf.UInt64Value lead_id = 7;
+  google.protobuf.UInt64Value tile_id = 8;
+}
+
+// HouseSearch is form of House used as a search result.
+message HouseSearch {
+  uint64 id = 1;
+  google.protobuf.Timestamp created_at = 2;
+  google.protobuf.Timestamp updated_at = 3;
+  geometry.LatLng latlng = 4;
+  repeated state.Kind states = 5;
+  uint64 company_id = 6;
+  models.Address address = 7;
+}

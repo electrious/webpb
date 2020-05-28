@@ -1,0 +1,32 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.workers.nodes.racking;
+
+option csharp_namespace = "Electrious.Workers.Nodes.Racking";
+option go_package = "rackingpb";
+option java_multiple_files = true;
+option java_outer_classname = "RequestProto";
+option java_package = "com.electrious.workers.nodes.racking";
+option objc_class_prefix = "EWNR";
+option php_namespace = "Electrious\\Workers\\Nodes\\Racking";
+
+import "electrious/models/racking/kind.proto";
+import "electrious/models/racking/mount.proto";
+import "electrious/models/racking/rafter.proto";
+import "electrious/models/roofplate/panel.proto";
+
+// Request to racking service, to obtain racking.
+message Request {
+  models.racking.Kind kind = 1;
+  // Spacing represent spacing for every roofplate.
+  message Spacing {
+    models.racking.Mount.Spacing mount = 1;
+    models.racking.Rafter.Spacing rafter = 2;
+  }
+  // This field is map[UUID (string)]Spacing
+  map<string, Spacing> spacing = 2;
+  repeated models.roofplate.Panel panels = 3;
+}

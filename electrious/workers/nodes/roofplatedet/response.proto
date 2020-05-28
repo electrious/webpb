@@ -1,0 +1,26 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.workers.nodes.roofplatedet;
+
+option csharp_namespace = "Electrious.Workers.Nodes.Roofplatedet";
+option go_package = "roofplatedetpb";
+option java_multiple_files = true;
+option java_outer_classname = "ResponseProto";
+option java_package = "com.electrious.workers.nodes.roofplatedet";
+option objc_class_prefix = "EWNR";
+option php_namespace = "Electrious\\Workers\\Nodes\\Roofplatedet";
+
+import "electrious/models/roofplate.proto";
+
+// Response contains border points of each roofplate
+// and quality score of prediciton.
+message Response {
+  bool success = 1;
+  string error = 2;
+  repeated models.RoofplateDetected roofplates = 3;
+  float quality_score = 4;
+  string version = 5;
+}

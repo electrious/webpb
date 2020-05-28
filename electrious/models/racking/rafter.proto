@@ -1,0 +1,34 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.racking;
+
+option csharp_namespace = "Electrious.Models.Racking";
+option go_package = "rackingpb";
+option java_multiple_files = true;
+option java_outer_classname = "RafterProto";
+option java_package = "com.electrious.models.racking";
+option objc_class_prefix = "EMR";
+option php_namespace = "Electrious\\Models\\Racking";
+option swift_prefix = "ProtoRacking";
+
+import "electrious/uuid.proto";
+
+// Rafter ...
+// todo eric
+message Rafter {
+  // Spacing ...
+  // todo eric
+  enum Spacing {
+    SPACING_INVALID = 0;
+    SPACING_16 = 1;
+    SPACING_24 = 2;
+  }
+  electrious.UUID id = 1;
+  double length = 2;
+  double x = 3;
+  double y = 4;
+  double z = 5;
+}

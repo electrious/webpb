@@ -1,0 +1,47 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.house.cluster;
+
+option csharp_namespace = "Electrious.Models.House.Cluster";
+option go_package = "clusterpb";
+option java_multiple_files = true;
+option java_outer_classname = "ClusterProto";
+option java_package = "com.electrious.models.house.cluster";
+option objc_class_prefix = "EMHC";
+option php_namespace = "Electrious\\Models\\House\\Cluster";
+option swift_prefix = "ProtoCluster";
+
+import "electrious/models/geometry/latlng.proto";
+import "electrious/models/house/state/state.proto";
+
+// Group represent bunch of
+// points grouped together by geohash.
+// Geohash is eesentialy like md5, where every character
+// represent certain tile on planet. More characters closer
+// you are to ground.
+message Group {
+  geometry.LatLng latlng = 1;
+  string geohash = 2;
+  uint32 count = 3;
+}
+
+// Expansion is essentialy pretty much same as Cluster.
+// In addition it keeps zoom level as how much you need to
+// go futher with geohash to cluster expand.
+message Expansion {
+  geometry.LatLng latlng = 1;
+  string geohash = 2;
+  uint32 zoom = 3;
+}
+
+// Point is single house on earth.
+message Point {
+  uint64 id = 1;
+  geometry.LatLng latlng = 2;
+  string geohash = 3;
+  bool has_lead = 4;
+  repeated state.Kind states = 5;
+}

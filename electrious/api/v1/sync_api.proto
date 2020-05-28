@@ -1,0 +1,49 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.api.v1;
+
+option csharp_namespace = "Electrious.Api.V1";
+option go_package = "apiv1";
+option java_multiple_files = true;
+option java_outer_classname = "SyncApiProto";
+option java_package = "com.electrious.api.v1";
+option objc_class_prefix = "EAX";
+option php_namespace = "Electrious\\Api\\V1";
+option swift_prefix = "";
+
+import "electrious/models/syncmessage.proto";
+
+// SyncAPI service helps to setup a Pub/Sub message hub.
+service SyncAPI {
+  // Subscribe will start listening for SyncMessages.
+  rpc Subscribe(SubscribeRequest) returns (stream SubscribeResponse);
+  // Unsubscribe the existing subscription to a lead.
+  rpc Unsubscribe(UnsubscribeRequest) returns (UnsubscribeResponse);
+  // Publish will publish new SyncMessage to other subscribers.
+  rpc Publish(PublishRequest) returns (PublishResponse);
+}
+
+message SubscribeRequest {
+  uint64 lead_id = 1;
+  string client_id = 2;
+}
+
+message SubscribeResponse {
+  models.SyncMessage msg = 1;
+}
+
+message UnsubscribeRequest {
+  uint64 lead_id = 1;
+  string client_id = 2;
+}
+
+message UnsubscribeResponse {}
+
+message PublishRequest {
+  models.SyncMessage msg = 1;
+}
+
+message PublishResponse {}

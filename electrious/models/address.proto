@@ -1,0 +1,29 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models;
+
+option csharp_namespace = "Electrious.Models";
+option go_package = "modelspb";
+option java_multiple_files = true;
+option java_outer_classname = "AddressProto";
+option java_package = "com.electrious.models";
+option objc_class_prefix = "EMX";
+option php_namespace = "Electrious\\Models";
+option swift_prefix = "Proto";
+
+import "google/protobuf/timestamp.proto";
+
+// Address represent single place on earth.
+message Address {
+  uint64 id = 1;
+  google.protobuf.Timestamp created_at = 2;
+  google.protobuf.Timestamp updated_at = 3;
+  string street = 4;
+  string city = 5;
+  string state = 6;
+  string country = 7;
+  string postal_code = 8;
+}

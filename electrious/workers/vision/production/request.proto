@@ -1,0 +1,34 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.workers.vision.production;
+
+option csharp_namespace = "Electrious.Workers.Vision.Production";
+option go_package = "productionpb";
+option java_multiple_files = true;
+option java_outer_classname = "RequestProto";
+option java_package = "com.electrious.workers.vision.production";
+option objc_class_prefix = "EWVP";
+option php_namespace = "Electrious\\Workers\\Vision\\Production";
+
+import "electrious/models/geometry/latlng.proto";
+import "electrious/models/inverter.proto";
+import "electrious/models/panel.proto";
+import "electrious/models/roofplate.proto";
+import "electrious/models/roofplate/panel.proto";
+
+// Request for vision production recalculation.
+message Request {
+  models.geometry.LatLng latlng = 1;
+  // Roofplate is combination of roofplate and panels which belongs to
+  // each other.
+  message Roofplate {
+    models.Roofplate roofplate = 1;
+    repeated models.roofplate.Panel panels = 2;
+  }
+  repeated Roofplate roofplates = 2;
+  models.Panel panel = 3;
+  repeated models.Inverter inverters = 4;
+}

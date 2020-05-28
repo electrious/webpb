@@ -1,0 +1,35 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.user;
+
+option csharp_namespace = "Electrious.Models.User";
+option go_package = "userpb";
+option java_multiple_files = true;
+option java_outer_classname = "ContactProto";
+option java_package = "com.electrious.models.user";
+option objc_class_prefix = "EMU";
+option php_namespace = "Electrious\\Models\\User";
+option swift_prefix = "ProtoUser";
+
+import "google/protobuf/timestamp.proto";
+
+// Contact represent single contact for
+// user. This can be email or phone or whatever.
+message Contact {
+  uint64 id = 1;
+  google.protobuf.Timestamp created_at = 2;
+  google.protobuf.Timestamp updated_at = 3;
+  // Kind is kind of contact.
+  enum Kind {
+    KIND_INVALID = 0;
+    KIND_EMAIL = 1;
+    KIND_PHONE = 2;
+  }
+  Kind kind = 4;
+  string contact = 5;
+  bool verified = 6;
+  uint64 user_id = 7;
+}

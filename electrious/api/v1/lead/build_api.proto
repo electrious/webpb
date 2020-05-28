@@ -1,0 +1,42 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.api.v1.lead;
+
+option csharp_namespace = "Electrious.Api.V1.Lead";
+option go_package = "leadpb";
+option java_multiple_files = true;
+option java_outer_classname = "BuildApiProto";
+option java_package = "com.electrious.api.v1.lead";
+option objc_class_prefix = "EAVL";
+option php_namespace = "Electrious\\Api\\V1\\Lead";
+option swift_prefix = "Lead";
+
+import "electrious/models/lead/build.proto";
+import "electrious/uuid.proto";
+
+// BuildAPI is designed to do "general" ops with lead builds.
+service BuildAPI {
+  // GetBuild will get concrete build.
+  rpc GetBuild(GetBuildRequest) returns (GetBuildResponse);
+  // SubscribeBuild will start stream of responses.
+  rpc SubscribeBuild(SubscribeBuildRequest) returns (stream SubscribeBuildResponse);
+}
+
+message GetBuildRequest {
+  electrious.UUID uuid = 1;
+}
+
+message GetBuildResponse {
+  models.lead.Build build = 1;
+}
+
+message SubscribeBuildRequest {
+  electrious.UUID uuid = 1;
+}
+
+message SubscribeBuildResponse {
+  models.lead.Build build = 1;
+}

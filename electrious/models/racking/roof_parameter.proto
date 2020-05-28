@@ -1,0 +1,54 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.racking;
+
+option csharp_namespace = "Electrious.Models.Racking";
+option go_package = "rackingpb";
+option java_multiple_files = true;
+option java_outer_classname = "RoofParameterProto";
+option java_package = "com.electrious.models.racking";
+option objc_class_prefix = "EMR";
+option php_namespace = "Electrious\\Models\\Racking";
+option swift_prefix = "ProtoRacking";
+
+import "electrious/models/racking/chassis.proto";
+import "electrious/models/racking/mount.proto";
+import "electrious/models/racking/rafter.proto";
+
+// RoofParameter that will encapsulate different types of parameters
+// for different racking systems.
+message RoofParameter {
+  oneof param_type {
+    XRParameter xr_param = 1;
+    FXParameter fx_param = 2;
+    XRFlatParameter xr_flat_param = 3;
+    BXParameter bx_param = 4;
+    GAFParameter gaf_param = 5;
+  }
+}
+
+// XRParameter for XR system.
+message XRParameter {
+  models.racking.Mount.Spacing mount_space = 1;
+  models.racking.Rafter.Spacing rafter_space = 2;
+}
+
+// FXParameter for FX system.
+message FXParameter {
+  models.racking.Mount.Spacing mount_space = 1;
+  models.racking.Rafter.Spacing rafter_space = 2;
+}
+
+// XRFlatParameter for XR flat racking system.
+message XRFlatParameter {}
+
+// BXParameter for BX ballasted racking system.
+message BXParameter {
+  models.racking.Chassis.Kind chassis_kind = 1;
+}
+
+// GAFParameter for GAF system.
+message GAFParameter {}

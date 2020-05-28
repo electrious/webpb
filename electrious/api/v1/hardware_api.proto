@@ -1,0 +1,28 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.api.v1;
+
+option csharp_namespace = "Electrious.Api.V1";
+option go_package = "apiv1";
+option java_multiple_files = true;
+option java_outer_classname = "HardwareApiProto";
+option java_package = "com.electrious.api.v1";
+option objc_class_prefix = "EAX";
+option php_namespace = "Electrious\\Api\\V1";
+option swift_prefix = "";
+
+// CompanyAPI service will serve companies.
+service HardwareAPI {
+  // ListCompanies returns all companies.
+  rpc SetBatteryCount(SetBatteryCountRequest) returns (SetBatteryCountResponse);
+}
+
+message SetBatteryCountRequest {
+  uint32 battery_count = 1;
+  uint64 lead_id = 2;
+}
+
+message SetBatteryCountResponse {}

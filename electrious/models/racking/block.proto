@@ -1,0 +1,26 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.racking;
+
+option csharp_namespace = "Electrious.Models.Racking";
+option go_package = "rackingpb";
+option java_multiple_files = true;
+option java_outer_classname = "BlockProto";
+option java_package = "com.electrious.models.racking";
+option objc_class_prefix = "EMR";
+option php_namespace = "Electrious\\Models\\Racking";
+option swift_prefix = "ProtoRacking";
+
+import "electrious/uuid.proto";
+
+// Block in BX ballasted system.
+message Block {
+  electrious.UUID id = 1;
+  int32 array_number = 2;
+  double x = 3;
+  double y = 4;
+  double z = 5;
+}

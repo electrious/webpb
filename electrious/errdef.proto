@@ -1,0 +1,24 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious;
+
+option csharp_namespace = "Electrious";
+option go_package = "electriouspb";
+option java_multiple_files = true;
+option java_outer_classname = "ErrdefProto";
+option java_package = "com.electrious";
+option objc_class_prefix = "EXX";
+option php_namespace = "Electrious";
+option swift_prefix = "Proto";
+
+// ErrSet represent single key value.
+// Error details are constructed from repeated ErrSet
+// that is what contruct structured errors.
+// Code + main message + repeated ErrSet
+message ErrSet {
+  string key = 1;
+  string value = 2;
+}

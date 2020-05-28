@@ -1,0 +1,69 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models;
+
+option csharp_namespace = "Electrious.Models";
+option go_package = "modelspb";
+option java_multiple_files = true;
+option java_outer_classname = "RoofplateProto";
+option java_package = "com.electrious.models";
+option objc_class_prefix = "EMX";
+option php_namespace = "Electrious\\Models";
+option swift_prefix = "Proto";
+
+import "electrious/models/point.proto";
+import "electrious/models/racking/mount.proto";
+import "electrious/models/racking/rafter.proto";
+import "electrious/models/roofplate/panel.proto";
+import "electrious/uuid.proto";
+import "google/protobuf/timestamp.proto";
+
+// Roofplate is single roofplate. Roof is composed from many of roofplates.
+message Roofplate {
+  uint64 id = 1;
+  electrious.UUID uuid = 2;
+  google.protobuf.Timestamp created_at = 3;
+  google.protobuf.Timestamp updated_at = 4;
+  google.protobuf.Timestamp end_at = 5;
+  uint32 lead_id = 6;
+  // Border points are points in space representing where the roofplate lies.
+  repeated Point3 border_points = 7;
+  // Unified points says how much is roofplate productive.
+  repeated Point3WithRating unified_points = 8;
+  // Default orientation for panels.
+  roofplate.Panel.Orientation orientation = 9;
+  // Default alignment for panels.
+  roofplate.Panel.Alignment alignment = 10;
+  repeated double coefs = 11;
+  repeated double center = 12;
+  repeated double normal = 13;
+  double slope = 14;
+  double azimuth = 15;
+  double rotation_override = 16;
+  racking.Mount.Spacing mount_space = 17;
+  racking.Rafter.Spacing rafter_space = 18;
+  RoofplateSetbacks setbacks = 19;
+}
+
+// RoofplateDetected is single roof plate resource returned by DL model.
+message RoofplateDetected {
+  Point3 axe_ground = 1;
+  Point3 axe_inclined = 2;
+  repeated Point3 contours = 3;
+  repeated int32 point_indices = 4;
+}
+
+// RoofplateSetbacks defines setbacks of the roofplate.
+message RoofplateSetbacks {
+  repeated Point3 min_ridge_setback = 1;
+  repeated Point3 min_ridge_setback_midpoints = 2;
+  repeated Point3 min_side_setback = 3;
+  repeated Point3 min_side_setback_midpoints = 4;
+  repeated Point3 max_ridge_setback = 5;
+  repeated Point3 max_ridge_setback_midpoints = 6;
+  repeated Point3 max_side_setback = 7;
+  repeated Point3 max_side_setback_midpoints = 8;
+}

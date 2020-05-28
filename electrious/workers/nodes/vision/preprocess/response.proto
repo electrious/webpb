@@ -1,0 +1,37 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.workers.nodes.vision.preprocess;
+
+option csharp_namespace = "Electrious.Workers.Nodes.Vision.Preprocess";
+option go_package = "preprocesspb";
+option java_multiple_files = true;
+option java_outer_classname = "ResponseProto";
+option java_package = "com.electrious.workers.nodes.vision.preprocess";
+option objc_class_prefix = "EWNVP";
+option php_namespace = "Electrious\\Workers\\Nodes\\Vision\\Preprocess";
+
+import "electrious/models/hardware.proto";
+import "electrious/models/production.proto";
+import "electrious/models/roofplate.proto";
+import "electrious/models/roofplate/panel.proto";
+import "electrious/models/scene.proto";
+
+// Response is response given from vision.
+message Response {
+  bool success = 1;
+  string error = 2;
+  models.Scene scene = 3;
+  models.Production production = 4;
+  models.Hardware hardware = 5;
+  float estimated_kwh_usage = 6;
+  // Roofplate is combination of roofplates and panels.
+  // This is useful as roodplate dont embeds panels.
+  message Roofplate {
+    models.Roofplate roofplate = 1;
+    repeated models.roofplate.Panel panels = 2;
+  }
+  repeated Roofplate roofplates = 7;
+}

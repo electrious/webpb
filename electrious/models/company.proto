@@ -1,0 +1,26 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models;
+
+option csharp_namespace = "Electrious.Models";
+option go_package = "modelspb";
+option java_multiple_files = true;
+option java_outer_classname = "CompanyProto";
+option java_package = "com.electrious.models";
+option objc_class_prefix = "EMX";
+option php_namespace = "Electrious\\Models";
+option swift_prefix = "Proto";
+
+import "google/protobuf/timestamp.proto";
+
+// Company represent single sales team.
+// Keep in mind name will be unique.
+message Company {
+  uint64 id = 1;
+  google.protobuf.Timestamp created_at = 2;
+  google.protobuf.Timestamp updated_at = 3;
+  string name = 4;
+}

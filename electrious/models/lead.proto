@@ -1,0 +1,45 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models;
+
+option csharp_namespace = "Electrious.Models";
+option go_package = "modelspb";
+option java_multiple_files = true;
+option java_outer_classname = "LeadProto";
+option java_package = "com.electrious.models";
+option objc_class_prefix = "EMX";
+option php_namespace = "Electrious\\Models";
+option swift_prefix = "Proto";
+
+import "electrious/models/geometry/latlng.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+// Lead represent single  project which can be fork of already
+// existing lead. This can be noticed by origin_id not being empty.
+// Lead is basically glue between marker on a map and every other information
+// which is realted to that house. One marker can have many leads.
+// To choose witch you need to know company or specific id.
+message Lead {
+  uint64 id = 1;
+  google.protobuf.Timestamp created_at = 2;
+  google.protobuf.Timestamp updated_at = 3;
+  uint64 company_id = 4;
+  uint64 creator_id = 5;
+  geometry.LatLng latlng = 6;
+  string genability_id = 7;
+  google.protobuf.UInt64Value origin_id = 8;
+  google.protobuf.StringValue promo_code = 9;
+  //   State state = 4;
+
+}
+
+// LeadAddress represents lead with joined information about
+// address.
+message LeadAddress {
+  Lead lead = 1;
+  string address = 2;
+}

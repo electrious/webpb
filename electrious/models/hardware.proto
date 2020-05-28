@@ -1,0 +1,27 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models;
+
+option csharp_namespace = "Electrious.Models";
+option go_package = "modelspb";
+option java_multiple_files = true;
+option java_outer_classname = "HardwareProto";
+option java_package = "com.electrious.models";
+option objc_class_prefix = "EMX";
+option php_namespace = "Electrious\\Models";
+option swift_prefix = "Proto";
+
+import "google/protobuf/timestamp.proto";
+
+// Hardware represent hardware info about project.
+message Hardware {
+  uint64 id = 1;
+  google.protobuf.Timestamp created_at = 2;
+  uint64 lead_id = 3;
+  uint64 panel_id = 4;
+  uint64 inverter_id = 5;
+  uint32 inverter_count = 6;
+}

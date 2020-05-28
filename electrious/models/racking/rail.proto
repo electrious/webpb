@@ -1,0 +1,29 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.racking;
+
+option csharp_namespace = "Electrious.Models.Racking";
+option go_package = "rackingpb";
+option java_multiple_files = true;
+option java_outer_classname = "RailProto";
+option java_package = "com.electrious.models.racking";
+option objc_class_prefix = "EMR";
+option php_namespace = "Electrious\\Models\\Racking";
+option swift_prefix = "ProtoRacking";
+
+import "electrious/uuid.proto";
+
+// Rail ...
+// todo eric
+message Rail {
+  electrious.UUID id = 1;
+  int32 array_number = 2;
+  repeated electrious.UUID panels = 3;
+  double length = 4;
+  double x = 5;
+  double y = 6;
+  double z = 7;
+}

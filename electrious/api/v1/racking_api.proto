@@ -1,0 +1,42 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.api.v1;
+
+option csharp_namespace = "Electrious.Api.V1";
+option go_package = "apiv1";
+option java_multiple_files = true;
+option java_outer_classname = "RackingApiProto";
+option java_package = "com.electrious.api.v1";
+option objc_class_prefix = "EAX";
+option php_namespace = "Electrious\\Api\\V1";
+option swift_prefix = "";
+
+import "electrious/models/racking.proto";
+import "electrious/workers/racking/request.proto";
+
+// RackingAPI service will do racking calculation for panels.
+service RackingAPI {
+  // UpdateRacking will call the racking service and return the response.
+  rpc UpdateRacking(UpdateRackingRequest) returns (UpdateRackingResponse);
+  // DoRack will call the new racking service and return the response.
+  rpc DoRack(DoRackRequest) returns (DoRackResponse);
+}
+
+message UpdateRackingRequest {
+  workers.racking.Request request = 1;
+}
+
+message UpdateRackingResponse {
+  models.Racking racking = 1;
+}
+
+message DoRackRequest {
+  workers.racking.RackRequest request = 1;
+}
+
+message DoRackResponse {
+  models.RackingSystem racking = 1;
+}

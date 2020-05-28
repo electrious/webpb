@@ -1,0 +1,37 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.house.state;
+
+option csharp_namespace = "Electrious.Models.House.State";
+option go_package = "statepb";
+option java_multiple_files = true;
+option java_outer_classname = "StateProto";
+option java_package = "com.electrious.models.house.state";
+option objc_class_prefix = "EMHS";
+option php_namespace = "Electrious\\Models\\House\\State";
+option swift_prefix = "ProtoHouseState";
+
+// Kind is saying what type of event happend to house.
+// Usually this is combination of company spacific state
+// and global state such as KIND_SA_SIGNED.
+// Global state means that any user under any company
+// will see such a event. If home already signed contract
+// you want to let other companies know.
+enum Kind {
+  KIND_INVALID = 0;
+  KIND_TOUCHED = 1;
+  KIND_SA_SENT = 2;
+  KIND_SA_SIGNED = 3;
+  KIND_IN_PROGRESS = 4;
+  KIND_CREATED = 5;
+  KIND_FAILED = 6;
+}
+
+// States is pair of house id with list of it's states.
+message States {
+  uint64 id = 1;
+  repeated Kind states = 2;
+}

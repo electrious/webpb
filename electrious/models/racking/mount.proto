@@ -1,0 +1,39 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.racking;
+
+option csharp_namespace = "Electrious.Models.Racking";
+option go_package = "rackingpb";
+option java_multiple_files = true;
+option java_outer_classname = "MountProto";
+option java_package = "com.electrious.models.racking";
+option objc_class_prefix = "EMR";
+option php_namespace = "Electrious\\Models\\Racking";
+option swift_prefix = "ProtoRacking";
+
+import "electrious/uuid.proto";
+
+// Mount ...
+// todo eric
+message Mount {
+  // Spacing ...
+  // todo eric
+  enum Spacing {
+    SPACING_INVALID = 0;
+    SPACING_24 = 1;
+    SPACING_32 = 2;
+    SPACING_48 = 3;
+    SPACING_64 = 4;
+    SPACING_72 = 5;
+  }
+  electrious.UUID id = 1;
+  int32 array_number = 2;
+  electrious.UUID flash = 3;
+  double clamp_x = 4;
+  double x = 5;
+  double y = 6;
+  double z = 7;
+}

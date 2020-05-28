@@ -1,0 +1,21 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.geometry;
+
+option csharp_namespace = "Electrious.Models.Geometry";
+option go_package = "geometrypb";
+option java_multiple_files = true;
+option java_outer_classname = "LatlngProto";
+option java_package = "com.electrious.models.geometry";
+option objc_class_prefix = "EMG";
+option php_namespace = "Electrious\\Models\\Geometry";
+option swift_prefix = "Proto";
+
+// LatLng represent single point on earth.
+message LatLng {
+  double lat = 1;
+  double lng = 2;
+}

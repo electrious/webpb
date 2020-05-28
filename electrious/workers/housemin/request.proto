@@ -1,0 +1,23 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.workers.housemin;
+
+option csharp_namespace = "Electrious.Workers.Housemin";
+option go_package = "houseminpb";
+option java_multiple_files = true;
+option java_outer_classname = "RequestProto";
+option java_package = "com.electrious.workers.housemin";
+option objc_class_prefix = "EWH";
+option php_namespace = "Electrious\\Workers\\Housemin";
+
+// Request is request for miner.
+// Miner is resposinble to get multiple regular Request done.
+// You can look at miner as "smart" proxy which can be halted
+// with bunch of coordintaes and will get them converted and done.
+message Request {
+  uint64 x = 1;
+  uint64 y = 2;
+}

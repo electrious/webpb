@@ -1,0 +1,47 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models;
+
+option csharp_namespace = "Electrious.Models";
+option go_package = "modelspb";
+option java_multiple_files = true;
+option java_outer_classname = "ProductionProto";
+option java_package = "com.electrious.models";
+option objc_class_prefix = "EMX";
+option php_namespace = "Electrious\\Models";
+option swift_prefix = "Proto";
+
+// Production represent production values per roofplate.
+message Production {
+  uint64 id = 1;
+  repeated float production_hourly = 2;
+  float production_annual = 3;
+  float capacity_factor = 4;
+  float kwh_per_kw = 5;
+  float performance_ratio = 6;
+  // Loss is how much we losse energy on setup.
+  message Loss {
+    float poa_shading = 1;
+    float poa_soiling = 2;
+    float dc_module_modeled = 3;
+    float dc_inverter_mppt_clipping = 4;
+    float dc_mismatch = 5;
+    float dc_diodes_and_connections = 6;
+    float dc_wiring = 7;
+    float dc_tracking = 8;
+    float dc_nameplate = 9;
+    float dc_power_optimizer = 10;
+    float dc_performance_adjustment = 11;
+    float ac_inverter_power_clipping = 12;
+    float ac_inverter_power_consumption = 13;
+    float ac_inverter_night_tare = 14;
+    float ac_inverter_efficiency = 15;
+    float ac_wiring = 16;
+    float ac_performance_adjustment = 17;
+    float transformer = 18;
+  }
+  Loss losses = 7;
+}

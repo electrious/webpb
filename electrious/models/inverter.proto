@@ -1,0 +1,46 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models;
+
+option csharp_namespace = "Electrious.Models";
+option go_package = "modelspb";
+option java_multiple_files = true;
+option java_outer_classname = "InverterProto";
+option java_package = "com.electrious.models";
+option objc_class_prefix = "EMX";
+option php_namespace = "Electrious\\Models";
+option swift_prefix = "Proto";
+
+// Inverter represents unit which converts DC => AC.
+// It takes energy from panels and make it available for grid.
+message Inverter {
+  uint64 id = 1;
+  string name = 2;
+  string manufacturer = 3;
+  // InverterKind can be either one inverter for multiple panels (string)
+  // Or it can be one per panel (micro).
+  enum InverterKind {
+    INVERTER_KIND_INVALID = 0;
+    INVERTER_KIND_STRING = 1;
+    INVERTER_KIND_MICRO = 2;
+  }
+  InverterKind kind = 4;
+  float vac = 5;
+  float paco = 6;
+  float pdco = 7;
+  float vdco = 8;
+  float pso = 9;
+  float pnt = 10;
+  float c0 = 11;
+  float c1 = 12;
+  float c2 = 13;
+  float c3 = 14;
+  float vdcmax = 15;
+  float idcmax = 16;
+  float mppt_low = 17;
+  float mppt_high = 18;
+  int32 year_approved_at = 19;
+}

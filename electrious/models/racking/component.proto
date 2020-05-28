@@ -1,0 +1,95 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models.racking;
+
+option csharp_namespace = "Electrious.Models.Racking";
+option go_package = "rackingpb";
+option java_multiple_files = true;
+option java_outer_classname = "ComponentProto";
+option java_package = "com.electrious.models.racking";
+option objc_class_prefix = "EMR";
+option php_namespace = "Electrious\\Models\\Racking";
+option swift_prefix = "ProtoRacking";
+
+import "electrious/models/racking/block.proto";
+import "electrious/models/racking/bridge.proto";
+import "electrious/models/racking/chassis.proto";
+import "electrious/models/racking/clamp.proto";
+import "electrious/models/racking/endcap.proto";
+import "electrious/models/racking/flash.proto";
+import "electrious/models/racking/hood.proto";
+import "electrious/models/racking/lfoot.proto";
+import "electrious/models/racking/mount.proto";
+import "electrious/models/racking/qbasemount.proto";
+import "electrious/models/racking/rail.proto";
+import "electrious/models/racking/skirt.proto";
+import "electrious/models/racking/splice.proto";
+import "electrious/models/racking/stopper.proto";
+import "electrious/models/racking/supportrail.proto";
+import "electrious/models/racking/tiltleg.proto";
+
+// Component ...
+// todo eric
+message Component {
+  oneof rd_type {
+    RailComponent rail = 1;
+    RailFreeComponent rail_free = 2;
+    RailFlatComponent rail_flat = 3;
+    BallastComponent ballast = 4;
+    GAFComponent gaf = 5;
+  }
+}
+
+// RailComponent ...
+// todo eric
+message RailComponent {
+  int32 array_number = 1;
+  repeated Rail rails = 2;
+  int32 full_rails_num = 3;
+  repeated Splice splices = 4;
+  repeated Flash flashes = 5;
+  repeated LFoot lfeet = 6;
+  repeated Clamp clamps = 7;
+  repeated Stopper stoppers = 8;
+}
+
+// RailFreeComponent ...
+// todo eric
+message RailFreeComponent {
+  int32 array_number = 1;
+  repeated Flash flashes = 2;
+  repeated Mount mounts = 3;
+  repeated Bridge bridges = 4;
+  repeated Skirt skirts = 5;
+  repeated EndCap left_caps = 6;
+  repeated EndCap right_caps = 7;
+}
+
+// RailFlatComponent has all fields for a racking result of a Rail Flat system.
+message RailFlatComponent {
+  int32 array_number = 1;
+  repeated Rail rails = 2;
+  int32 full_rails_num = 3;
+  repeated Splice splices = 4;
+  repeated Clamp clamps = 5;
+  repeated Stopper stoppers = 6;
+  repeated SupportRail support_rails = 7;
+  repeated QBaseMount qbase_mounts = 8;
+  repeated TiltLeg tilt_legs = 9;
+}
+
+// BallastComponent has all fields for the BX Ballasted racking system on flat roofs.
+message BallastComponent {
+  int32 array_number = 1;
+  repeated Chassis chassis = 2;
+  repeated Block blocks = 3;
+}
+
+// GAFComponent has all fields for the GAF system.
+message GAFComponent {
+  int32 array_number = 1;
+  repeated Hood hoods = 2;
+}

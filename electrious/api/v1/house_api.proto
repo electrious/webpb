@@ -1,0 +1,73 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.api.v1;
+
+option csharp_namespace = "Electrious.Api.V1";
+option go_package = "apiv1";
+option java_multiple_files = true;
+option java_outer_classname = "HouseApiProto";
+option java_package = "com.electrious.api.v1";
+option objc_class_prefix = "EAX";
+option php_namespace = "Electrious\\Api\\V1";
+option swift_prefix = "";
+
+import "electrious/models/geometry/latlng.proto";
+import "electrious/models/house/house.proto";
+import "electrious/models/house/state/state.proto";
+
+// HouseAPI service helps to manage basic op with houses.
+service HouseAPI {
+  // DetectedArea returns true/false to indicate if given lat,lng
+  // is positioned inside map tile where we already detected houses.
+  rpc DetectedArea(DetectedAreaRequest) returns (DetectedAreaResponse);
+  // DetectHouses returns status of house detection job.
+  rpc DetectHouses(DetectHousesRequest) returns (DetectHousesResponse);
+  // ListHouseStates returns house ID with array of house states.
+  rpc ListHouseStates(ListHouseStatesRequest) returns (ListHouseStatesResponse);
+  // SearchHouses returns search result.
+  rpc SearchHouses(SearchHousesRequest) returns (SearchHousesResponse);
+  // CreateHouse add house on map.
+  rpc CreateHouse(CreateHouseRequest) returns (CreateHouseResponse);
+}
+
+message DetectedAreaRequest {
+  models.geometry.LatLng point = 1;
+}
+
+message DetectedAreaResponse {
+  bool detected = 1;
+}
+
+message DetectHousesRequest {
+  models.geometry.LatLng point = 1;
+}
+
+message DetectHousesResponse {}
+
+message ListHouseStatesRequest {
+  repeated uint64 ids = 1;
+}
+
+message ListHouseStatesResponse {
+  repeated models.house.state.States house_states = 1;
+}
+
+message SearchHousesRequest {
+  string address = 1;
+}
+
+message SearchHousesResponse {
+  repeated models.house.HouseSearch houses = 1;
+}
+
+message CreateHouseRequest {
+  models.geometry.LatLng latlng = 1;
+  float diameter = 2;
+}
+
+message CreateHouseResponse {
+  models.house.House house = 1;
+}

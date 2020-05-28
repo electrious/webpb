@@ -1,0 +1,50 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.api.v1;
+
+option csharp_namespace = "Electrious.Api.V1";
+option go_package = "apiv1";
+option java_multiple_files = true;
+option java_outer_classname = "ClusterApiProto";
+option java_package = "com.electrious.api.v1";
+option objc_class_prefix = "EAX";
+option php_namespace = "Electrious\\Api\\V1";
+option swift_prefix = "";
+
+import "electrious/models/geometry/latlng.proto";
+import "electrious/models/house/cluster/cluster.proto";
+
+// ClusterAPI service will help with getting points on map.
+// They can be either cluster which can turn into points or
+// points them selfs.
+service ClusterAPI {
+  // ListClusters returns list of clusters based on paramters given.
+  rpc ListClusters(ListClustersRequest) returns (ListClustersResponse);
+  // GetClusterExp returns cluster expansion zoom. This is
+  // useful if you want to know how far to zoom.
+  rpc GetClusterExp(GetClusterExpRequest) returns (GetClusterExpResponse);
+}
+
+message ListClustersRequest {
+  models.geometry.LatLng from = 1;
+  models.geometry.LatLng to = 2;
+  uint32 zoom = 3;
+}
+
+message ListClustersResponse {
+  repeated models.house.cluster.Group groups = 1;
+  repeated models.house.cluster.Point points = 2;
+}
+
+message GetClusterExpRequest {
+  models.geometry.LatLng from = 1;
+  models.geometry.LatLng to = 2;
+  uint32 zoom = 3;
+}
+
+message GetClusterExpResponse {
+  models.house.cluster.Expansion cluster = 1;
+}

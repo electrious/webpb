@@ -1,0 +1,29 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.workers.vision.preprocess;
+
+option csharp_namespace = "Electrious.Workers.Vision.Preprocess";
+option go_package = "preprocesspb";
+option java_multiple_files = true;
+option java_outer_classname = "RequestProto";
+option java_package = "com.electrious.workers.vision.preprocess";
+option objc_class_prefix = "EWVP";
+option php_namespace = "Electrious\\Workers\\Vision\\Preprocess";
+
+import "electrious/models/file.proto";
+import "electrious/models/geometry/latlng.proto";
+import "electrious/models/inverter.proto";
+import "electrious/models/panel.proto";
+import "electrious/models/roofplate.proto";
+
+// Request for vision preprocess.
+message Request {
+  models.geometry.LatLng latlng = 1;
+  models.File ply = 2;
+  models.Panel panel = 3;
+  repeated models.Inverter inverters = 4;
+  repeated models.RoofplateDetected roofplates = 5;
+}

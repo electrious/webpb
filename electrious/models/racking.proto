@@ -1,0 +1,48 @@
+// Code generated from upstream! DO NOT EDIT.
+// Clean.Tech (c) 2020
+
+syntax = "proto3";
+
+package electrious.models;
+
+option csharp_namespace = "Electrious.Models";
+option go_package = "modelspb";
+option java_multiple_files = true;
+option java_outer_classname = "RackingProto";
+option java_package = "com.electrious.models";
+option objc_class_prefix = "EMX";
+option php_namespace = "Electrious\\Models";
+option swift_prefix = "Proto";
+
+import "electrious/models/racking/component.proto";
+import "electrious/models/racking/kind.proto";
+import "electrious/models/racking/mount.proto";
+import "electrious/models/racking/rafter.proto";
+import "electrious/models/racking/roof_parameter.proto";
+
+// RoofRacking has racking data for one roof.
+message RoofRacking {
+  repeated racking.Rafter rafters = 1;
+  racking.Mount.Spacing mount_spacing = 2;
+  racking.Rafter.Spacing rafter_spacing = 3;
+  map<uint64, racking.Component> components = 4;
+}
+
+// Racking system embeds kind and components for that kind.
+message Racking {
+  racking.Kind kind = 1;
+  map<string, RoofRacking> roof_rackings = 2;
+}
+
+// RoofRackingResult is new roof Racking result model.
+message RoofRackingResult {
+  racking.Kind kind = 1;
+  repeated racking.Rafter rafters = 2;
+  racking.RoofParameter params = 3;
+  map<uint64, racking.Component> components = 4;
+}
+
+// RackingSystem is new racking system result.
+message RackingSystem {
+  map<string, RoofRackingResult> roof_rackings = 1;
+}
