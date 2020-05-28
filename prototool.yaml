@@ -1,0 +1,29 @@
+
+excludes:
+  - ./pb
+  
+protoc:
+  version: 3.7.0
+
+lint:
+  group: uber2
+  rules:
+    remove:
+      - PACKAGE_MAJOR_BETA_VERSIONED
+      - WKT_TIMESTAMP_SUFFIX
+      - NAMES_NO_UUID
+
+  file_header:
+    content: |
+      // Code generated from upstream! DO NOT EDIT.
+      // Clean.Tech (c) 2020
+    is_commented: true
+    
+generate:
+  plugins:
+    - name: js
+      output: .
+      flags: import_style=commonjs
+    - name: grpc-web
+      output: .
+      flags: import_style=commonjs,mode=grpcwebtext
