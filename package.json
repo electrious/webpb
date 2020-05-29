@@ -2,7 +2,6 @@
   "name": "webpb",
   "version": "1.0.0",
   "description": "ProtoBuf and GRPC generated code for JS",
-  "main": "index.js",
   "repository": "https://github.com/electrious/webpb",
   "author": "Eric Wong <ericsyw@gmail.com>",
   "license": "AllRightsReserved",
