@@ -5,6 +5,7 @@
   "repository": "https://github.com/electrious/webpb",
   "author": "Eric Wong <ericsyw@gmail.com>",
   "license": "AllRightsReserved",
+  "main": "index.js",
   "private": true,
   "dependencies": {
     "google-protobuf": "^3.12.2",

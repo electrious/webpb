@@ -9,3 +9,4 @@ compile:
 	@rm -rf ./electrious && mkdir ./electrious
 	@cp -R ./pb/electrious/* ./electrious
 	@prototool all --fix
+	@./generate_index.sh
